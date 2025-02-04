@@ -8,13 +8,13 @@ function initializeDefaultEmployees() {
             {
                 name: 'Manager',
                 role: 'Manager',
-                pin: '1111',
+                pin: '2155',
                 status: 'active'
             },
             {
                 name: 'Staff',
                 role: 'Staff',
-                pin: '2155',
+                pin: '1111',
                 status: 'active'
             }
         ];
