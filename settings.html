@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPOS Settings</title>
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="settings-container">
+        <div class="settings-sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+            </div>
+            <nav class="settings-nav">
+                <button class="nav-item active" data-section="general">
+                    <i class="fas fa-sliders-h"></i> General
+                </button>
+                <button class="nav-item" data-section="users">
+                    <i class="fas fa-users"></i> Users & Access
+                </button>
+                <button class="nav-item" data-section="menu">
+                    <i class="fas fa-utensils"></i> Menu Management
+                </button>
+                <button class="nav-item" data-section="payment">
+                    <i class="fas fa-credit-card"></i> Payment Methods
+                </button>
+                <button class="nav-item" data-section="tax">
+                    <i class="fas fa-receipt"></i> Tax & Pricing
+                </button>
+                <button class="nav-item" data-section="printer">
+                    <i class="fas fa-print"></i> Printer Settings
+                </button>
+                <button class="nav-item" data-section="discounts">
+                    <i class="fas fa-percent"></i> Discounts & Offers
+                </button>
+                <button class="nav-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i> Reports & Analytics
+                </button>
+                <button class="nav-item" data-section="backup">
+                    <i class="fas fa-database"></i> Backup & Restore
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="back-btn" onclick="window.location.href='home.html'">
+                    <i class="fas fa-arrow-left"></i> Back to EPOS
+                </button>
+            </div>
+        </div>
+
+        <div class="settings-content">
+            <!-- General Settings -->
+            <div class="settings-section active" id="general">
+                <h2>General Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Business Information</h3>
+                        <div class="form-group">
+                            <label>Business Name</label>
+                            <input type="text" value="My Restaurant">
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <textarea rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel">
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Display Settings</h3>
+                        <div class="form-group">
+                            <label>Currency Symbol</label>
+                            <select>
+                                <option>£</option>
+                                <option>$</option>
+                                <option>€</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Date Format</label>
+                            <select>
+                                <option>DD/MM/YYYY</option>
+                                <option>MM/DD/YYYY</option>
+                                <option>YYYY-MM-DD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Order Settings</h3>
+                        <div class="form-group">
+                            <label>Order Number Prefix</label>
+                            <input type="text" value="ORD-">
+                        </div>
+                        <div class="form-group">
+                            <label>Reset Order Numbers</label>
+                            <select>
+                                <option>Daily</option>
+                                <option>Weekly</option>
+                                <option>Monthly</option>
+                                <option>Never</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users & Access -->
+            <div class="settings-section" id="users">
+                <h2>Users & Access Management</h2>
+                <div class="settings-grid">
+                    <div class="setting-card full-width">
+                        <h3>Employee Management</h3>
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>PIN</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ethan</td>
+                                    <td>Manager</td>
+                                    <td>****</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- Add more employees -->
+                            </tbody>
+                        </table>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add Employee</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Management -->
+            <div class="settings-section" id="menu">
+                <h2>Menu Management</h2>
+                <div class="settings-grid">
+                    <div class="setting-card full-width">
+                        <h3>Categories</h3>
+                        <table class="menu-table">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Items Count</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Food</td>
+                                    <td>12</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Drinks</td>
+                                    <td>8</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add Category</button>
+                    </div>
+
+                    <div class="setting-card full-width">
+                        <h3>Menu Items</h3>
+                        <div class="menu-filters">
+                            <select class="filter-select">
+                                <option>All Categories</option>
+                                <option>Food</option>
+                                <option>Drinks</option>
+                            </select>
+                            <input type="search" placeholder="Search items..." class="search-input">
+                        </div>
+                        <table class="menu-table">
+                            <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Menu items will be dynamically added here -->
+                            </tbody>
+                        </table>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add Item</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="settings-section" id="payment">
+                <h2>Payment Methods</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Card Payment</h3>
+                        <div class="form-group">
+                            <label>Card Terminal Status</label>
+                            <select>
+                                <option>Connected</option>
+                                <option>Disconnected</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Merchant ID</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Terminal ID</label>
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Cash Management</h3>
+                        <div class="form-group">
+                            <label>Cash Drawer</label>
+                            <select>
+                                <option>Enabled</option>
+                                <option>Disabled</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Float Amount</label>
+                            <input type="number" step="0.01" value="100.00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tax & Pricing -->
+            <div class="settings-section" id="tax">
+                <h2>Tax & Pricing</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Tax Settings</h3>
+                        <div class="form-group">
+                            <label>VAT Rate (%)</label>
+                            <input type="number" value="20">
+                        </div>
+                        <div class="form-group">
+                            <label>Tax Number</label>
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Price Rounding</h3>
+                        <div class="form-group">
+                            <label>Round to Nearest</label>
+                            <select>
+                                <option>0.01</option>
+                                <option>0.05</option>
+                                <option>0.10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Printer Settings -->
+            <div class="settings-section" id="printer">
+                <h2>Printer Settings</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Receipt Printer</h3>
+                        <div class="form-group">
+                            <label>Printer Status</label>
+                            <select>
+                                <option>Connected</option>
+                                <option>Disconnected</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Paper Size</label>
+                            <select>
+                                <option>80mm</option>
+                                <option>58mm</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Kitchen Printer</h3>
+                        <div class="form-group">
+                            <label>Printer Status</label>
+                            <select>
+                                <option>Connected</option>
+                                <option>Disconnected</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Auto-Print Orders</label>
+                            <select>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discounts & Offers -->
+            <div class="settings-section" id="discounts">
+                <h2>Discounts & Offers</h2>
+                <div class="settings-grid">
+                    <div class="setting-card full-width">
+                        <h3>Active Promotions</h3>
+                        <table class="discounts-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Value</th>
+                                    <th>Valid Until</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Student Discount</td>
+                                    <td>Percentage</td>
+                                    <td>10%</td>
+                                    <td>Ongoing</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="action-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="action-btn"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add Promotion</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports & Analytics -->
+            <div class="settings-section" id="reports">
+                <h2>Reports & Analytics</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Report Settings</h3>
+                        <div class="form-group">
+                            <label>Default Report Period</label>
+                            <select>
+                                <option>Today</option>
+                                <option>This Week</option>
+                                <option>This Month</option>
+                                <option>Custom</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Auto-Generate Reports</label>
+                            <select>
+                                <option>Daily</option>
+                                <option>Weekly</option>
+                                <option>Monthly</option>
+                                <option>Never</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Email Reports</h3>
+                        <div class="form-group">
+                            <label>Send To Email</label>
+                            <input type="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Report Format</label>
+                            <select>
+                                <option>PDF</option>
+                                <option>Excel</option>
+                                <option>CSV</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backup & Restore -->
+            <div class="settings-section" id="backup">
+                <h2>Backup & Restore</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <h3>Automatic Backup</h3>
+                        <div class="form-group">
+                            <label>Backup Frequency</label>
+                            <select>
+                                <option>Daily</option>
+                                <option>Weekly</option>
+                                <option>Monthly</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Retain Backups For</label>
+                            <select>
+                                <option>1 Month</option>
+                                <option>3 Months</option>
+                                <option>6 Months</option>
+                                <option>1 Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="setting-card">
+                        <h3>Manual Backup</h3>
+                        <button class="backup-btn">Create Backup Now</button>
+                        <div class="backup-list">
+                            <h4>Recent Backups</h4>
+                            <ul>
+                                <li>
+                                    Backup_2024_01_20.zip
+                                    <button class="action-btn"><i class="fas fa-download"></i></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="settings.js"></script>
+</body>
+</html> 

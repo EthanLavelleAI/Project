@@ -1,0 +1,158 @@
+:root {
+    --background: #f8f9fa;
+    --surface: white;
+    --text: #333;
+    --primary: #3498db;
+    --error: #ff4444;
+    --success: #4CAF50;
+    --button-bg: #f8f9fa;
+    --button-hover: #e9ecef;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --background: #000000;
+    --surface: #121212;
+    --text: #ffffff;
+    --primary: #64b5f6;
+    --error: #ff6b6b;
+    --success: #81c784;
+    --button-bg: #1f1f1f;
+    --button-hover: #2d2d2d;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    transition: all 0.15s ease !important;
+}
+
+.pin-login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pin-login {
+    background: var(--surface);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow);
+    width: 300px;
+    transition: all 0.15s ease !important;
+}
+
+.pin-login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.pin-display {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#pinInput {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pin-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.dot.filled {
+    background-color: var(--primary);
+}
+
+.pin-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.pin-button {
+    padding: 15px;
+    font-size: 1.5em;
+    border: none;
+    background: var(--button-bg);
+    color: var(--text);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pin-button:hover {
+    background: var(--button-hover);
+    transform: scale(1.05);
+}
+
+.pin-button:active {
+    transform: scale(0.95);
+}
+
+.pin-button.clear {
+    background: var(--error);
+    color: white;
+}
+
+.pin-button.enter {
+    background: var(--success);
+    color: white;
+}
+
+.pin-error {
+    color: var(--error);
+    text-align: center;
+    min-height: 20px;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    font-size: 1.5em;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px var(--shadow);
+}
+
+.theme-toggle:hover {
+    background: var(--button-hover);
+    transform: scale(1.1);
+}
+
+/* Improve transitions for theme switching */
+* {
+    transition: all 0.15s ease !important;
+}

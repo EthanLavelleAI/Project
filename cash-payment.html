@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Payment - EPOS System</title>
+    <link rel="stylesheet" href="cash-payment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="cash-payment-container">
+        <div class="left-panel">
+            <div class="order-summary">
+                <h2>Order Summary #<span class="order-number"></span></h2>
+                <div class="order-items">
+                    <!-- Items will be populated dynamically -->
+                </div>
+                <div class="totals">
+                    <div class="subtotal">
+                        <span>Subtotal:</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                    <div class="tax">
+                        <span>Tax (20%):</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total Due:</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="cash-calculator">
+                <div class="payment-input">
+                    <h2>Cash Payment</h2>
+                    <div class="input-group">
+                        <label>Amount Received:</label>
+                        <div class="amount-input">
+                            <span class="currency">£</span>
+                            <input type="number" id="cashAmount" step="0.01" min="0">
+                        </div>
+                    </div>
+                    <div class="quick-amounts">
+                        <button class="amount-btn" data-amount="5">£5</button>
+                        <button class="amount-btn" data-amount="10">£10</button>
+                        <button class="amount-btn" data-amount="20">£20</button>
+                        <button class="amount-btn" data-amount="50">£50</button>
+                    </div>
+                </div>
+                <div class="change-display">
+                    <h3>Change Due:</h3>
+                    <div class="change-amount">£0.00</div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn back">Back</button>
+                    <button class="btn complete-payment" disabled>Complete Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="confirmationModal" style="display: none;">
+        <div class="modal-content">
+            <h2 class="modal-title">Payment Status</h2>
+            <p class="modal-message"></p>
+            <div class="modal-buttons">
+                <button class="btn modal-cancel">Cancel</button>
+                <button class="btn modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <script src="cash-payment.js"></script>
+</body>
+</html> 

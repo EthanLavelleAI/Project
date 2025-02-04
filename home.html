@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPOS System</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="order-display">
+                <div class="order-header">
+                    <div class="header-content">
+                        <h2>Current Order</h2>
+                        <span class="order-number">#1234</span>
+                        <span class="employee-name">Logged in as: Ethan</span>
+                    </div>
+                    <div class="header-actions">
+                        <button class="theme-toggle-btn" title="Toggle Dark Mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="settings-btn" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <button class="btn logout">Logout</button>
+                    </div>
+                </div>
+                <div class="order-items">
+                    <!-- Order items will be dynamically added here with enhanced controls -->
+                    <template id="order-item-template">
+                        <div class="order-item">
+                            <div class="order-item-details">
+                                <div class="order-item-main">
+                                    <span class="item-name">${item.name} - ${item.selectedSize}</span>
+                                    <div class="item-controls">
+                                        <button class="edit-btn" data-index="${index}" title="Edit">
+                                            <i class="fas fa-pen"></i>
+                                        </button>
+                                        <button class="remove-item" data-index="${index}" title="Remove">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div class="order-summary">
+                    <div class="subtotal">
+                        <span>Subtotal:</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                    <div class="tax">
+                        <span>Tax (20%):</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total:</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn cancel">Cancel Order</button>
+                <button class="btn pay">Pay Now</button>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="categories">
+                <button class="category-btn special-offers">Special Offers</button>
+                <button class="category-btn active">Food</button>
+                <button class="category-btn">Drinks</button>
+                <button class="category-btn">Alcohol</button>
+                <button class="category-btn">Desserts</button>
+            </div>
+            <div class="products-grid">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add custom modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h2 class="modal-title"></h2>
+            <div class="modal-body"></div>
+            <div class="modal-buttons">
+                <button class="btn modal-cancel">Cancel</button>
+                <button class="btn modal-confirm">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="home.js"></script>
+
+    <!-- Table Selection Modal -->
+    <div class="modal" id="tableSelectionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Select Table</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="table-grid">
+                    <button class="table-btn" data-table="1">Table 1</button>
+                    <button class="table-btn" data-table="2">Table 2</button>
+                    <button class="table-btn" data-table="3">Table 3</button>
+                    <button class="table-btn" data-table="4">Table 4</button>
+                    <button class="table-btn" data-table="5">Table 5</button>
+                    <button class="table-btn" data-table="6">Table 6</button>
+                    <button class="table-btn" data-table="7">Table 7</button>
+                    <button class="table-btn" data-table="8">Table 8</button>
+                    <button class="table-btn" data-table="9">Table 9</button>
+                    <button class="table-btn takeaway" data-table="takeaway">Takeaway</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn modal-cancel">Cancel</button>
+                <button class="btn primary modal-confirm">Confirm Table</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast" style="display: none;">
+        <div class="toast-content">
+            <div class="toast-header">
+                <i class="fas fa-check-circle toast-icon"></i>
+                <span class="toast-title">Item Added</span>
+            </div>
+            <span class="toast-message"></span>
+        </div>
+        <i class="fas fa-times toast-close"></i>
+    </div>
+
+    <!-- Edit Item Modal -->
+    <div class="modal" id="editItemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Item</h2>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="edit-section">
+                    <h3>Select Size</h3>
+                    <div class="size-buttons" id="sizeButtons">
+                        <!-- Size buttons will be added dynamically -->
+                    </div>
+                </div>
+                <div class="edit-section">
+                    <h3>Adjust Quantity</h3>
+                    <div class="quantity-control">
+                        <button class="qty-btn minus">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <input type="number" id="editQuantity" min="1" max="99" value="1">
+                        <button class="qty-btn plus">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="edit-section ingredients-section">
+                    <h3>Customize Ingredients</h3>
+                    <div id="ingredientsList" class="ingredients-list">
+                        <!-- Ingredients will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn modal-cancel">Cancel</button>
+                <button class="btn modal-confirm">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

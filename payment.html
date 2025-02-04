@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - EPOS System</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="left-panel">
+            <div class="order-summary">
+                <h2>Order Summary #<span class="order-number"></span></h2>
+                <div class="order-items">
+                    <!-- Items will be populated dynamically -->
+                </div>
+                <div class="totals">
+                    <div class="subtotal">
+                        <span>Subtotal:</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                    <div class="tax">
+                        <span>Tax (20%):</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total:</span>
+                        <span class="amount">£0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="payment-methods">
+                <h2>Select Payment Method</h2>
+                <div class="payment-grid">
+                    <button class="payment-btn" data-method="cash">
+                        <i class="fas fa-money-bill"></i>
+                        <span class="payment-label">Cash</span>
+                        <span class="payment-description">Pay with cash</span>
+                    </button>
+                    <button class="payment-btn" data-method="card">
+                        <div class="payment-icons">
+                            <i class="fas fa-credit-card"></i>
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <span class="payment-label">Card/Contactless</span>
+                        <span class="payment-description">Pay by card or contactless</span>
+                    </button>
+                    <button class="payment-btn" data-method="gift-card">
+                        <i class="fas fa-gift"></i>
+                        <span class="payment-label">Gift Card</span>
+                        <span class="payment-description">Pay with gift card</span>
+                    </button>
+                    <button class="payment-btn employee-btn" data-method="employee">
+                        <i class="fas fa-user"></i>
+                        <span class="payment-label">Employee</span>
+                        <span class="payment-description">Employee discount</span>
+                    </button>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn cancel">Back</button>
+                <button class="btn complete-payment" disabled>Complete Payment</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="confirmationModal" style="display: none;">
+        <div class="modal-content">
+            <h2 class="modal-title">Payment Status</h2>
+            <p class="modal-message"></p>
+            <div class="modal-buttons">
+                <button class="btn modal-cancel">Cancel</button>
+                <button class="btn modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html> 

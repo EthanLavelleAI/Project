@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPOS Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+    <div class="pin-login-container">
+        <div class="pin-login">
+            <h2>Enter PIN</h2>
+            <div class="pin-display">
+                <input type="password" id="pinInput" readonly maxlength="4">
+                <div class="pin-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            <div class="pin-pad">
+                <button class="pin-button">1</button>
+                <button class="pin-button">2</button>
+                <button class="pin-button">3</button>
+                <button class="pin-button">4</button>
+                <button class="pin-button">5</button>
+                <button class="pin-button">6</button>
+                <button class="pin-button">7</button>
+                <button class="pin-button">8</button>
+                <button class="pin-button">9</button>
+                <button class="pin-button clear">C</button>
+                <button class="pin-button">0</button>
+                <button class="pin-button enter">⏎</button>
+            </div>
+            <div class="pin-error"></div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
