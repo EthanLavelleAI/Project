@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check if already logged in
     if (localStorage.getItem('isLoggedIn') === 'true') {
-        window.location.href = 'home.html';
+        window.location.href = 'index.html';
         return;
     }
 
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('employeeName', employee.name);
             localStorage.setItem('employeeRole', employee.role);
-            window.location.href = 'home.html';
+            window.location.href = 'index.html';
         } else {
             errorDisplay.textContent = 'Incorrect PIN';
             setTimeout(() => {

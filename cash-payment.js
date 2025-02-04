@@ -100,7 +100,7 @@ class CashPayment {
                 
                 localStorage.removeItem('currentOrder');
                 localStorage.removeItem('pendingOrder');
-                window.location.href = 'home.html';
+                window.location.href = 'index.html';
             }, 2000);
         }, 2000);
     }

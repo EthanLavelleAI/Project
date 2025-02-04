@@ -81,7 +81,7 @@ class PaymentSystem {
         // Back button - Save order state before going back
         document.querySelector('.cancel').addEventListener('click', () => {
             localStorage.setItem('pendingOrder', JSON.stringify(this.orderData));
-            window.location.href = 'home.html';
+            window.location.href = 'index.html';
         });
 
         // Complete payment button
@@ -114,7 +114,7 @@ class PaymentSystem {
             setTimeout(() => {
                 localStorage.removeItem('currentOrder');
                 localStorage.removeItem('pendingOrder');
-                window.location.href = 'home.html';
+                window.location.href = 'index.html';
             }, 2000);
         }, 2000);
     }
