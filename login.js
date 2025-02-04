@@ -1,3 +1,29 @@
+// Initialize default employees if none exist
+function initializeDefaultEmployees() {
+    const employees = JSON.parse(localStorage.getItem('employees') || '[]');
+    
+    // Only initialize if no employees exist
+    if (employees.length === 0) {
+        const defaultEmployees = [
+            {
+                name: 'Manager',
+                role: 'Manager',
+                pin: '1111',
+                status: 'active'
+            },
+            {
+                name: 'Staff',
+                role: 'Staff',
+                pin: '2155',
+                status: 'active'
+            }
+        ];
+        
+        localStorage.setItem('employees', JSON.stringify(defaultEmployees));
+        console.log('Default employees initialized');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Theme toggle functionality
     const themeToggle = document.getElementById('themeToggle');
@@ -13,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
+
+    // Initialize default employees
+    initializeDefaultEmployees();
 
     // Check if already logged in
     if (localStorage.getItem('isLoggedIn') === 'true') {
