@@ -401,21 +401,18 @@ class EPOSSystem {
             let lastNumber = parseInt(localStorage.getItem('lastOrderNumber') || '0');
             if (isNaN(lastNumber)) lastNumber = 0;
             
-            // Increment and reset to 1 if it exceeds 100
+            // Increment the number (no reset at 100)
             let newNumber = lastNumber + 1;
-            if (newNumber > 100) {
-                newNumber = 1;
-            }
             
             // Store the new number back in localStorage
             localStorage.setItem('lastOrderNumber', newNumber.toString());
             
-            // Format the number with leading zeros (e.g., 01, 02, etc.)
-            return newNumber.toString().padStart(2, '0');
+            // Format the number with leading zeros if less than 100
+            return newNumber < 100 ? newNumber.toString().padStart(2, '0') : newNumber.toString();
         } catch (error) {
             console.error('Error generating order number:', error);
-            // Fallback to a number between 1-100 if something goes wrong
-            return Math.floor(Math.random() * 100 + 1).toString().padStart(2, '0');
+            // Fallback to a timestamp-based number if something goes wrong
+            return Date.now().toString().slice(-8);
         }
     }
 
